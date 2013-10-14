@@ -1,0 +1,4 @@
+Fix following errors:
+
+When cancelling block settings in course:
+Notice: Undefined property: stdClass::$format in /var/www/virtualhosts/moodle2.dev.thunderbird.edu/html/blocks/faculty_tbird/edit_form.php on line 68 
