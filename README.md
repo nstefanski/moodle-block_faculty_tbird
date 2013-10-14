@@ -3,7 +3,7 @@ This is a dynamic block with information about the course faculty.
 Written by Johan Reinalda,  johan dot reinalda at thunderbird dot edu
 
 DESCRIPTION:
-This is a simple HTML Block that create dynamic data about the course faculty,
+This is a simple HTML Block that creates dynamic data about the course faculty,
 and some dynamic links to faculty bio's etc.
 
 NOTE:
@@ -11,6 +11,8 @@ This block is tested in Moodle v2.3+ only!
 
 INSTALLATION:
 Unzip these files to the appropriate directories under your Moodle install <blocks> folder
+(If you get this from github.com, the path should be <html>/blocks/faculty_tbird/
+
 Then as Moodle admin, go to the Notifications entry of your Admin block.
 The block should be found and added to the list of available block.
 
