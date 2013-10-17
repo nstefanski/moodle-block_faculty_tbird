@@ -60,6 +60,5 @@ if ($ADMIN->fulltree) {
 				get_string('configallowcustomdescr', 'block_faculty_tbird'), 0));
 
 	$settings->add(new admin_setting_confightmleditor('block_faculty_tbird/configfooter', get_string('configfooter', 'block_faculty_tbird'),
-				get_string('configfooterdescr', 'block_faculty_tbird'),
-				'', PARAM_RAW, 60 ));
+				get_string('configfooterdescr', 'block_faculty_tbird'), ''));
 }

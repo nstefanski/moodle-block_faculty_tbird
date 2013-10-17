@@ -207,7 +207,7 @@ class block_faculty_tbird extends block_base {
         }
         
         //add instance content, if allowed and set
-		if(get_config('block_faculty_tbird','configallowcustom') and isset($this->config->text)) {
+		if(get_config('block_faculty_tbird','configallowcustom') and isset($this->config->text) and $this->config->text != '') {
 			// rewrite url
 			$this->config->text = file_rewrite_pluginfile_urls($this->config->text, 'pluginfile.php', $this->context->id, 'block_faculty_tbird', 'content', NULL);
 			// Default to FORMAT_HTML which is what will have been used before the
@@ -243,9 +243,11 @@ class block_faculty_tbird extends block_base {
      */
     function instance_config_save($data, $nolongerused = false) {
     	$config = clone($data);
-    	// Move embedded files into a proper filearea and adjust HTML links to match
-    	$config->text = file_save_draft_area_files($data->text['itemid'], $this->context->id, 'block_faculty_tbird', 'content', 0, array('subdirs'=>true), $data->text['text']);
-    	$config->format = $data->text['format'];
+    	if(get_config('block_faculty_tbird','configallowcustom')) {
+    		// Move embedded files into a proper filearea and adjust HTML links to match
+    		$config->text = file_save_draft_area_files($data->text['itemid'], $this->context->id, 'block_faculty_tbird', 'content', 0, array('subdirs'=>true), $data->text['text']);
+    		$config->format = $data->text['format'];
+    	}
     
     	parent::instance_config_save($config, $nolongerused);
     }
