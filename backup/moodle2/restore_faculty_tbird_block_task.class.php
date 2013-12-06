@@ -41,7 +41,7 @@ class restore_faculty_tbird_block_task extends restore_block_task {
     }
 
     public function get_configdata_encoded_attributes() {
-        return array('text'); // We need to encode some attrs in configdata
+        return array('text'); // We need to encode some attrs in configdata.
     }
 
     static public function define_decode_contents() {
@@ -65,7 +65,7 @@ class restore_faculty_tbird_block_task extends restore_block_task {
  */
 class restore_faculty_tbird_block_decode_content extends restore_decode_content {
 
-    protected $configdata; // Temp storage for unserialized configdata
+    protected $configdata; // Temp storage for unserialized configdata.
 
     protected function get_iterator() {
         global $DB;

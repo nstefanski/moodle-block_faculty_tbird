@@ -25,19 +25,13 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-//see more at http://docs.moodle.org/en/Development:Admin_settings#Individual_settings
-//various functions are defined in lib/adminlib.php, and docs can be found at
-//http://phpdocs.moodle.org/19/moodlecore/_1_9_STABLE_moodle_lib_adminlib_php.html
-
 if ($ADMIN->fulltree) {
 
-//function admin_setting_configtext($name, $visiblename, $description, $defaultsetting, $paramtype, $size){...}
-// define the settings for the Faculty block: body content
 	$settings->add(new admin_setting_configtext('block_faculty_tbird/configtitle', get_string('configtitle', 'block_faculty_tbird'),
 				get_string('configtitledescr', 'block_faculty_tbird'),
 				get_string('configtitledefault', 'block_faculty_tbird'), PARAM_RAW, 30 ));
 	
-	//select what roles to use as faculty
+	// select what roles to use as faculty
 	$choices = Array();
 	// get all the global roles
 	$allroles = get_all_roles();
@@ -45,8 +39,8 @@ if ($ADMIN->fulltree) {
 		$choices[$role->id] = $role->name;
 	}
 	$default = Array();
-	$default[3] = 1;	//3 = Teacher
-	//and then allow each role to be selected for showing in the roster reports.
+	$default[3] = 1;	// 3 = Teacher
+	// and then allow each role to be selected for showing in the roster reports.
 	$settings->add(new admin_setting_configmulticheckbox('block_faculty_tbird/facultyroles', get_string('facultyroles', 'block_faculty_tbird'),
 			get_string('facultyrolesdescription', 'block_faculty_tbird'), $default, $choices));
 

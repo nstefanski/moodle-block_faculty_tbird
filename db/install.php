@@ -28,16 +28,16 @@ defined('MOODLE_INTERNAL') || die();
 function xmldb_block_faculty_tbird_install() {
 
 	$catid = 1; //default 'Other' profile category
-	//insert new profile category
-	//$category = new stdClass();
-	//$category->name = get_string('categoryname','block_faculty_tbird');
-	//$category->sortorder = 1;
-	//$catid = $DB->insert_record('user_info_category',$category);
+	// insert new profile category
+	// $category = new stdClass();
+	// $category->name = get_string('categoryname','block_faculty_tbird');
+	// $category->sortorder = 1;
+	// $catid = $DB->insert_record('user_info_category',$category);
 	
 	// Initial insert of some new faculty related profile fields
 	$field = new stdClass();
 	
-	//default settings; hide field for all but user.
+	// default settings; hide field for all but user.
 	$field->descriptionformat = 1;
 	$field->categoryid = $catid;
 	$field->required = 0;
@@ -48,33 +48,33 @@ function xmldb_block_faculty_tbird_install() {
 	$field->defaultdataformat = 0;
 	$field->param1 = 60;
 	$field->param2 = 2048;
-	//$field->defaultdata = '';
-	//$field->param3 = 0;
-	//$field->param4 = 
-	//$field->param5 =
+	// $field->defaultdata = '';
+	// $field->param3 = 0;
+	// $field->param4 = 
+	// $field->param5 =
 
-	$field->shortname = 'facultyheadertbird';	//NOTE: moodle does not all - or _ in this field!
+	$field->shortname = 'facultyheadertbird';	// NOTE: moodle does not allow - or _ in this field!
 	$field->name = get_string('facultytitlename','block_faculty_tbird');
 	$field->datatype = 'text';
 	$field->description = get_string('facultytitledescr','block_faculty_tbird');
 	$field->sortorder = 1;
 	addField($field);
 	
-	$field->shortname = 'officetbird';	//NOTE: moodle does not all - or _ in this field!
+	$field->shortname = 'officetbird';	// NOTE: moodle does not allow - or _ in this field!
 	$field->name = get_string('officename','block_faculty_tbird');
 	$field->datatype = 'text';
 	$field->description = get_string('officedescr','block_faculty_tbird');
 	$field->sortorder = 2;
 	addField($field);
 	
-	$field->shortname = 'officehourstbird';	//NOTE: moodle does not all - or _ in this field!
+	$field->shortname = 'officehourstbird';	// NOTE: moodle does not allow - or _ in this field!
 	$field->name = get_string('officehoursname','block_faculty_tbird');
 	$field->datatype = 'text';
 	$field->description = get_string('officehoursdescr','block_faculty_tbird');
 	$field->sortorder = 3;
 	addField($field);
 	
-	$field->shortname = 'biourltbird';	//NOTE: moodle does not all - or _ in this field!
+	$field->shortname = 'biourltbird';	// NOTE: moodle does not allow - or _ in this field!
 	$field->name = get_string('facultybiourlname','block_faculty_tbird');
 	$field->datatype = 'text';
 	$field->description = get_string('facultybiourldescr','block_faculty_tbird');
@@ -92,7 +92,7 @@ function xmldb_block_faculty_tbird_install() {
 function addField($field) {
 	global $DB;
 	
-	//see if this field name already exists. This could be if block was uninstalled and later reinstalled
+	// see if this field name already exists. This could be if block was uninstalled and later reinstalled
 	$fieldsql = "SELECT id FROM {user_info_field} WHERE shortname = '" . $field->shortname . "'";
 	if(!$DB->record_exists_sql($fieldsql))
 		$id = $DB->insert_record('user_info_field', $field);

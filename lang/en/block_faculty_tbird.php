@@ -40,7 +40,6 @@ $string['configallowcustomdescr'] = 'If set, in each instance allow additional c
 $string['configchangetitle'] = 'Change block title';
 $string['configadditionalcontent'] = 'Additional content';
 $string['faculty_tbird_settings'] = 'Faculty Contact settings';
-//profile field related
 $string['categoryname'] = 'Faculty Information';
 $string['facultytitlename'] = 'Faculty Title';
 $string['facultytitledescr'] = '<p>Shows as \'heading\' at top of Faculty block.</p><p>E.g. "Professor Jane Doe"</p><p>If not set, Firstname Lastname is used</p>';

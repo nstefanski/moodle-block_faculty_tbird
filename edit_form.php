@@ -23,10 +23,6 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-//for all items you can add, see /lib/form/*.php - JKR 20101124
-//form->addElement (type, variable_name, label)
-//variable starts with config_xxxxx and then can be addressed as block->config->xxxxx
-
 class block_faculty_tbird_edit_form extends block_edit_form {
     protected function specific_definition($mform) {
     	// Fields for editing custom block title and additional contents.
@@ -36,17 +32,17 @@ class block_faculty_tbird_edit_form extends block_edit_form {
     	$allowcustom = get_config('block_faculty_tbird','configallowcustom');
     	if(!empty($allownewtitle) or !empty($allowcustom)) {
 
-    		//Fields for editing the block content
+    		// Fields for editing the block content
     	    $mform->addElement('header', 'configheader', get_string('faculty_tbird_settings', 'block_faculty_tbird'));
 
     	    if (!empty($allownewtitle)) {
-    			//$title = isset($this->config->title) ? $this->config->title : '';
+    			// $title = isset($this->config->title) ? $this->config->title : '';
 		        $mform->addElement('text', 'config_title', get_string('configchangetitle', 'block_faculty_tbird'));
 		        $mform->setType('config_title', PARAM_MULTILANG);
     	    }
 
     	    if(!empty($allowcustom)) {
-    			//$text = isset($this->config->text) ? $this->config->text : '';
+    			// $text = isset($this->config->text) ? $this->config->text : '';
     	    	$editoroptions = array('maxfiles' => EDITOR_UNLIMITED_FILES, 'noclean'=>true, 'context'=>$this->block->context);
     	    	$mform->addElement('editor', 'config_text', get_string('configadditionalcontent', 'block_faculty_tbird'), null, $editoroptions);
         		$mform->setType('config_text', PARAM_RAW); // XSS is prevented when printing the block contents and serving files
