@@ -40,6 +40,20 @@ USAGE:
 
 * add to a course as usual.
 
+AUTOMATING INPUT / UPDATING OF THESE NEW PROFILE FIELDS:
+The moodle 'Site Admin -> Users -> Accounts -> Upload users' functionality can be used to upload a CSV file with
+the profile data in it. Upload a CSV file of the following format, with this header line, and line for each
+faculty or moodle user you want to add or modify the new fields for:
+
+username,firstname,lastname,email,profile_field_facultyheadertbird,profile_field_officetbird,profile_field_officehourstbird,profile_field_biourltbird
+johanr,Johan,Reinalda,user@emailaddress.com,Asst. Prof. Reinalda,My Building Rm X,MWF 1-2PM,http://www.thunderbird.edu/bio/reinalda
+
+Note that the fields "username,firstname,lastname,email" are required by Moodle.
+The other fields map to the specific new profile fields that are added by this block.
+Make sure you select the proper settings for your environment when uploading the csv
+(specifically, look at 'Upload type", and "Select for bulk user actions = Yes") 
+See also the sample CSV file in the "docs" directory/
+
 OUTPUT:
 
 This block will show the following for each 'Faculty' member of a course.
@@ -62,7 +76,12 @@ automatic <hr/> element between the auto faculty info, and this custom info.
 Finally, the global footer as defined in the block system settings will be added to the bottom.
 (Being global, this will be at the bottom of each block instance!)
 
-	
+
+WHERE TO FIND THE BLOCK:
+
+On the Moodle plugin site, or at GitHub at
+https://github.com/johanreinalda/moodle-block_faculty_tbird
+
 VERSION CHANGES:
 
 2013090900 - Initial version
