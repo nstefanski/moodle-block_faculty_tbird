@@ -100,7 +100,7 @@ class block_faculty_tbird extends block_base {
         $info = '';
          
         // find the database id's for our custom profile field extentions
-        $fieldsql = "SELECT id,shortname FROM {user_info_field} WHERE shortname IN ('facultyheadertbird', 'officetbird', 'officehourstbird', 'biourltbird')";
+        $fieldsql = "SELECT id,shortname FROM {user_info_field} WHERE shortname IN ('facultyheadertbird', 'officetbird', 'officehourstbird', 'biourltbird', 'skype')";
         $fields = $DB->get_recordset_sql($fieldsql);
         $fieldidlist = '';
         $fieldname = Array();
@@ -121,7 +121,7 @@ class block_faculty_tbird extends block_base {
         
         if(!empty($COURSE)) {
         	// get all enrolled users with the globally selected roles (eg. 'teacher'(3)) at the course level (context 50) :
-        	$facultyquery = "SELECT id,firstname,lastname,username,email,picture,phone1,phone2,skype FROM {user}
+        	$facultyquery = "SELECT id,firstname,lastname,username,email,picture,phone1,phone2 FROM {user}
 					WHERE id in (SELECT userid
 								FROM {context} c
 								JOIN {role_assignments} ra ON c.id = ra.contextid
